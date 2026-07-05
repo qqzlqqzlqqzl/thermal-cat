@@ -7,11 +7,13 @@ use crate::thermal_data::ThermalData;
 
 pub mod infiray_p2_pro;
 pub mod thermal_master_p2;
+pub mod uti260b_tiny1b;
 
 pub static CAMERA_ADAPTERS: Lazy<Vec<Arc<dyn CameraAdapter>>> = Lazy::new(|| {
     vec![
         Arc::new(infiray_p2_pro::InfirayP2ProAdapter {}),
         Arc::new(thermal_master_p2::ThermanlMasterP2ProAdapter {}),
+        Arc::new(uti260b_tiny1b::Uti260bTiny1bAdapter {}),
     ]
 });
 pub trait CameraAdapter: Send + Sync {
